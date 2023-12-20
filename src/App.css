@@ -1,0 +1,445 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --dze-color: rgb(125, 133, 144);
+  --body-bg: rgb(13, 17, 23);
+  --body-bg-media: rgb(22, 27, 34);
+  --body-text: rgb(230, 237, 243);
+  --body-text-media: rgb(240, 246, 252);
+  --github-logo-fill: rgb(255, 255, 255);
+  --img-border: 1px solid transparent;
+  --img-outline: 1px solid rgb(48, 54, 61);
+  --img-shadow: rgba(240, 246, 252, 0.1) 0 0 0 1px;
+  --theme-icon-active: rgb(113, 183, 255);
+  --theme-icon: rgb(240, 243, 246);
+  --theme-icons: var(--theme-icon);
+  --shadow-box: rgb(48, 54, 61) 0 0 100px 0 inset;
+  --fer-border: 1px solid rgb(33, 38, 45);
+  --fer-bg: rgb(36, 41, 47);
+  --fer-text: rgb(125, 133, 144);
+  --fer-github-logo: rgb(110, 118, 129);
+  --fer-github-logo-hover: var(--fer-text);
+}
+
+[data-theme='light'] {
+  --dze-color: rgb(101, 109, 118);
+  --body-bg: rgb(255, 255, 255);
+  --body-bg-media: var(--body-bg);
+  --body-text: rgb(31, 35, 40);
+  --body-text-media: var(--body-text);
+  --github-logo-fill: var(--body-text);
+  --img-border: 1px solid transparent;
+  --img-outline: 1px solid rgb(208, 215, 222);
+  --img-shadow: rgba(31, 35, 40, 0.15) 0 0 0 1px;
+  --theme-icon-active: rgb(9, 105, 218);
+  --theme-icon: var(--dze-color);
+  --theme-icons: var(--body-text);
+  --shadow-box: rgb(208, 215, 222) 0 0 100px 0 inset;
+  --fer-border: 1px solid rgb(216, 222, 228);
+  --fer-bg: rgb(246, 248, 250);
+  --fer-text: var(--github-logo-fer-hover);
+  --fer-github-logo: rgb(110, 119, 129);
+  --fer-github-logo-hover: var(--dze-color);
+}
+
+[data-theme='dark'] {
+  --dze-color: rgb(240, 243, 246);
+  --body-bg: rgb(10, 12, 16);
+  --body-bg-media: rgb(39, 43, 51);
+  --body-text: var(--dze-color);
+  --body-text-media: rgb(255, 255, 255);
+  --github-logo-fill: var(--dze-color);
+  --img-border: 1px solid transparent;
+  --img-outline: 1px solid rgb(122, 130, 142);
+  --img-shadow: rgba(255, 255, 255, 0.9) 0 0 0 1px;
+  --theme-icon-active: rgb(64, 158, 255);
+  --theme-icon: var(--dze-color);
+  --theme-icons: var(--dze-color);
+  --shadow-box: rgb(122, 130, 142) 0 0 23px 0 inset;
+  --fer-border: 1px solid rgb(122, 130, 142);
+  --fer-bg: rgb(1, 4, 9);
+  --fer-text: var(--dze-color);
+  --fer-github-logo: rgb(158, 167, 179);
+  --fer-github-logo-hover: var(--dze-color);
+}
+
+#root,
+#theme {
+  width: 100%;
+  height: 100vh;
+  font-size: 14px;
+  overflow: hidden;
+  line-height: 21px;
+  color: var(--body-text);
+  transform: translateZ(0);
+  transition: all 200ms ease;
+  background-color: var(--body-bg);
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans',
+    Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+}
+
+ul {
+  list-style: none;
+}
+
+a,
+a:visited {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background: none;
+  color: var(--theme-icons);
+}
+
+.contact {
+  width: 296px;
+  height: 100vh;
+  border-top-right-radius: 6px;
+  box-shadow: var(--shadow-box);
+}
+
+.contact div:first-child {
+  display: grid;
+  text-align: center;
+}
+
+.contact div:first-child img {
+  width: 150px;
+  margin: 32px auto 0 auto;
+  border: var(--img-border);
+  outline: var(--img-outline);
+  box-shadow: var(--img-shadow);
+  border-radius: 50% !important;
+}
+
+.contact div:first-child span {
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 24px;
+  margin: 16px 0 0 0;
+  color: var(--dze-color);
+}
+
+.contact ul {
+  display: flex;
+  padding: 32px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.contact ul li:nth-child(3) {
+  top: 2.3px;
+  position: relative;
+}
+
+.contact ul svg path {
+  fill: var(--github-logo-fill);
+}
+
+.themeBN {
+  top: 16px;
+  left: 16px;
+  position: fixed;
+  fill: var(--theme-icon);
+  transition: all 1s ease;
+}
+
+.themeBN div {
+  top: 8px;
+  gap: 8px;
+  width: 0;
+  height: 0;
+  left: 16px;
+  display: flex;
+  position: relative;
+  align-items: center;
+  flex-direction: column;
+  fill: var(--theme-icons);
+}
+
+.themeBN button {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.themeBN button:hover {
+  opacity: 0.7;
+}
+
+.themeBN button.active {
+  transition: all 200ms ease;
+  fill: var(--theme-icon-active);
+  color: var(--theme-icon-active);
+}
+
+.themeBN .appearance {
+  display: none;
+}
+
+.themeBN button:first-child:hover + .appearance {
+  top: 16px;
+  left: 200px;
+  width: 80px;
+  padding: 4px;
+  display: block;
+  position: fixed;
+  font-size: 12px;
+  border-radius: 6px;
+  text-align: center;
+  transition: all 200ms ease;
+  background-color: rgba(84, 174, 255, 0.4);
+}
+
+.dev {
+  height: 0;
+  gap: 48px;
+  z-index: -1;
+  width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  text-align: center;
+  justify-content: center;
+  margin: -400px 0 0 400px;
+}
+
+.dev div {
+  gap: 4px;
+  width: 73px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dev span {
+  width: 100%;
+}
+
+.dev img {
+  width: 48px;
+}
+
+footer {
+  bottom: 0;
+  width: 100%;
+  left: 296px;
+  display: flex;
+  position: fixed;
+  font-size: 12px;
+  border-top: var(--fer-border);
+  background-color: var(--fer-bg);
+}
+
+footer div {
+  display: flex;
+  padding: 12px 0;
+  align-items: center;
+}
+
+footer span {
+  color: var(--fer-text);
+}
+
+footer a {
+  height: 24px;
+  padding: 0 8px 0 16px;
+}
+
+footer svg path {
+  fill: var(--fer-github-logo);
+}
+
+footer svg:hover path {
+  fill: var(--fer-github-logo-hover);
+}
+
+.not {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f1f1f1;
+}
+
+.not img {
+  width: 32px;
+  height: 32px;
+}
+
+.dev div:nth-child(4) img {
+  animation: react-logo-action infinite 20s linear;
+}
+
+@keyframes react-logo-action {
+  0% {
+    transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dev {
+    width: 314px;
+    margin: -400px 0 0 360px;
+  }
+}
+
+@media screen and (max-width: 630px) {
+  .dev {
+    width: 193px;
+    flex-wrap: wrap-reverse;
+    margin: -120px 0 0 296px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  #theme {
+    background-color: var(--body-bg-media);
+  }
+
+  .contact div:first-child img {
+    width: 77px !important;
+  }
+
+  .contact {
+    width: 500px;
+  }
+
+  .dev {
+    width: 400px;
+    flex-wrap: wrap;
+    margin-left: 48px;
+    margin-top: -400px;
+  }
+
+  .themeBN button:first-child:hover + .appearance {
+    left: calc(100vw - 96px);
+  }
+
+  footer {
+    left: 0;
+  }
+}
+
+@media screen and (max-width: 444px) {
+  .contact {
+    width: 444px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .contact {
+    width: 425px;
+    border-top-right-radius: 0;
+  }
+
+  .dev {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 393px) {
+  .contact {
+    width: 393px;
+  }
+
+  .dev {
+    margin-left: -4px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .contact {
+    width: 375px;
+  }
+
+  .dev {
+    margin-left: -16px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .contact {
+    max-width: 360px;
+  }
+
+  .dev {
+    margin-left: -32px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .contact {
+    max-width: 320px;
+  }
+
+  .dev {
+    margin-left: -55px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .themeBN button:first-child:hover + .appearance {
+    display: none;
+  }
+
+  .contact ul {
+    display: grid;
+    row-gap: 16px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .dev {
+    display: grid;
+    margin-left: -48px;
+  }
+}
+
+@media screen and (max-height: 550px) and (max-width: 500px) {
+  .dev {
+    display: none;
+  }
+}
+
+@media screen and (max-height: 444px) {
+  .dev {
+    margin-top: -123px;
+    flex-direction: column;
+  }
+
+  .dev span {
+    margin: -141px 0 0 -470px;
+  }
+}
+
+@media screen and (max-height: 444px) and (max-width: 840px) {
+  .dev {
+    visibility: hidden;
+  }
+
+  .dev div:nth-child(4) {
+    position: fixed;
+    visibility: visible;
+  }
+}
+
+@media screen and (max-height: 500px) and (max-width: 500px) {
+  .dev div:nth-child(4) {
+    visibility: hidden;
+  }
+}
