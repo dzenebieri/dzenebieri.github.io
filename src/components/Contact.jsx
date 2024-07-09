@@ -125,7 +125,7 @@ const Contact = () => {
               value={form.message}
               onChange={handleChange}
               placeholder='Write something...'
-              className='max-h-[1400px] bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+              className='max-h-[700px] min-h-[112px] bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
             />
           </label>
 
